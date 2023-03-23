@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #e8e1fa;
+  --header:#e8e1fa;
+
+  --secondary: #f3eee1;
+  --background: #f3eee1;
+
+  --font-primary: #6C625A;
+  --font-secondary: #c5ab6b;
+
+  --font-normal: rgb(31 41 55);
+  --accent: #c5ab6b;
+  --secondary-accent: rgb(156 163 175);
+
+  --hover: #ff9008;
+  --focus: #470053;
+  --activ: #1d5077;
+
+  scroll-behavior: smooth;
+}
+
+input:focus-within~label,
+input:not(:placeholder-shown)~label {
+  @apply transform scale-90 -translate-y-6;
+}
+
+@layer components {
+    .outline-button-gray {
+      @apply  py-1 px-3 text-sm font-medium bg-white text-gray-700 border border-gray-700 outline-none hover:text-white hover:bg-gray-800;
+    }
+}

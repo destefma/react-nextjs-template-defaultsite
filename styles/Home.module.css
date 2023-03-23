@@ -1,0 +1,107 @@
+.eistheke{
+  background-image: url("/assets/eistheke.webp");
+  background-attachment: fixed;
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #0087ca;
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #0087ca;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.edgeBorder {
+  position: relative;
+  border: 2px solid var(--font-normal);
+  border-radius: 1.5em;
+}
+.edgeBorder::before {
+  content: "";
+  position: absolute;
+  height: calc(100% + 10px);
+  width: 50%;
+  background-color: var(--background);
+  top: -5px;
+  left: 25%;
+}
+.edgeBorder::after {
+  content: "";
+  position: absolute;
+  height: 50%;
+  width: calc(100% + 10px);
+  background-color: var(--background);
+  top: 25%;
+  left: -5px;
+}
+
+.button_down {
+  position: relative;
+  padding: 10px;
+  margin: 30px auto;
+  background: #000;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  transition: all 0.8s linear;
+  opacity: 65%;
+}
+
+.button_down:hover {
+  transform: translate3d(0, 30px, 0);
+  opacity: 100%;
+}
+
+.button_down::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  z-index: 11;
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+}
+
+.button_down::after {
+  top: 10px;
+  transform: rotate(224deg);
+}
+
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
