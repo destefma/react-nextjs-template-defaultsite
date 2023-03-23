@@ -1,0 +1,15 @@
+{
+    "infos":"Die hier gegebenen Informationen erfolgten zur Erfüllung nachfolgend genannter gesetzlicher Verpflichtungen: § 6 und § 7 Teledienstegesetz (TDG), § 4 Abs. 3 Bundesdatenschutzgesetz (BDSG), § 312c Bürgerliches Gesetzbuch (BGB), § 1 BGB-Informationspflichten-Verordnung (BGB-InfoV) und § 6 Mediendienste-Staatsvertrag (MDStV). Obige Hervorhebungen bzgl. der Anschrift und der Benennung des Vertretungsberechtigen in fetter Schrift erfolgten mit Bezug auf die Hervorhebungsverpflichtung gemäß BGB-InfoV § 1 Abs. 4. Die Informationen dieser Seite sind leicht erkennbar und unmittelbar erreichbar und werden von Venezia 2 ständig verfügbar gehalten.",
+    "name":"Gastro",
+    "anschrift":{
+        "straße":"Musterstraße 1",
+        "plz":"66666",
+        "ort":"Musterstadt"
+    },
+    "phone":"(+49) 111 111 111 11",
+    "email":"info@musteremail.de",
+    "website":"http://www.google.de",
+    "ceo":"Musterman",
+    "steuernr":"000000",
+    "verantwortlicher":"Musterman"
+}
