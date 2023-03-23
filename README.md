@@ -1,4 +1,4 @@
-This is a Website for Gastro Business. Created with React, Next.js & TailwindCSS.
+This is a template for default Business Websites with Login Function. Created with React, Next.js & TailwindCSS.
 
 ## Getting Started
 
