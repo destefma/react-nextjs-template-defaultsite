@@ -9,9 +9,7 @@ export default function SignUp() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const [modalMessage, setMessage] = useState("");
-  const [modalHeaderText, setModalHeader] = useState("");
-
+  const [errorMsg, setError] = useState("Leer");
   const [isModalOpen, setModalOpen] = useState(false);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -24,17 +22,26 @@ export default function SignUp() {
           setPassword("");
           setUsername("");
 
-          setMessage("Abgeschlossen!");
-          setMessage("Sie haben sich erfolgreich Registriert.");
           setModalOpen(true);
         }
       })
       .catch((error) => {
-        setMessage("Folgender Fehler ist aufgetreten:");
         if (error === undefined) {
-          setMessage("Keine Verbindung zum Server");
-        } else {
-          setMessage("Error : " + JSON.stringify(error));
+          setError("Keine Verbindung zum Server");
+        }
+        if (error?.status) {
+          switch (error.status) {
+            case 401:
+              // Handle Unauthenticated here
+              break;
+            case 403:
+              // Handle Unauthorized here
+              break;
+            case 404:
+              setError("Keine Verbindung zum Server");
+              break;
+            // ... And so on
+          }
         }
         setModalOpen(true);
       });
@@ -129,8 +136,8 @@ export default function SignUp() {
       </div>
       {isModalOpen ? (
         <ModalDialog
-          headerText={modalHeaderText}
-          message={modalMessage}
+          headerText="Ein Fehler ist aufgetreten."
+          message={errorMsg}
           buttonText="Weiter"
           setModalOpen={setModalOpen}
         />

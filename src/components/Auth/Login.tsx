@@ -30,9 +30,9 @@ export default function Login() {
           let expiresIn = new Date();
           expiresIn.setTime(expiresIn.getTime() + EXPIRES_TIME);
 
-          setCookie("gastro_access_token", jwtToken, { path: "/", expiresIn });
-          setCookie("gastro_userid", userid, { path: "/", expiresIn });
-          setCookie("gastro_username", username, { path: "/", expiresIn });
+          setCookie("default_access_token", jwtToken, { path: "/", expiresIn });
+          setCookie("default_userid", userid, { path: "/", expiresIn });
+          setCookie("default_username", username, { path: "/", expiresIn });
 
           setAuth({ username, jwtToken, roles });
           router.push("/app");
@@ -40,9 +40,21 @@ export default function Login() {
       })
       .catch((error) => {
         if (error === undefined) {
-          setError("Keine Verbindung zum Server");
-        } else {
-          setError("Error : " + JSON.stringify(error));
+          setError("Keine Verbindung zum Server.");
+        }
+        if (error?.status) {
+          switch (error.status) {
+            case 401:
+              // Handle Unauthenticated here
+              break;
+            case 403:
+              // Handle Unauthorized here
+              break;
+            case 404:
+              setError("Keine Verbindung zum Server.");
+              break;
+            // ... And so on
+          }
         }
         setModalOpen(true);
       });
