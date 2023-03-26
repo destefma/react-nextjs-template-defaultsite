@@ -6,6 +6,8 @@ interface Props extends PropsWithChildren<any> {
   name?: string;
   description?: string;
   alertColor?: string;
+  imageSrc?: string;
+  alt?: string;
 }
 
 function EventNotification(props: Props) {
@@ -16,7 +18,13 @@ function EventNotification(props: Props) {
       <div
         className={"flex items-center justify-center w-12 " + props.alertColor}
       >
-        <Image src="/assets/icons/home.svg" className="w-5 h-5 my-1" alt={""} />
+        {props.imageSrc ?? (
+          <Image
+            src={props.imageSrc ?? ""}
+            className="w-5 h-5 my-1"
+            alt={props.alt ?? ""}
+          />
+        )}
       </div>
 
       <div className="px-4 py-2 -mx-3 items-center  w-full">
