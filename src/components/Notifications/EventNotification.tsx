@@ -18,13 +18,13 @@ function EventNotification(props: Props) {
       <div
         className={"flex items-center justify-center w-12 " + props.alertColor}
       >
-        {props.imageSrc ?? (
+        {props.imageSrc ? (
           <Image
             src={props.imageSrc ?? ""}
             className="w-5 h-5 my-1"
             alt={props.alt ?? ""}
           />
-        )}
+        ) : null}
       </div>
 
       <div className="px-4 py-2 -mx-3 items-center  w-full">
